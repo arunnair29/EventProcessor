@@ -11,7 +11,7 @@ public class FileReaderService extends RouteBuilder {
 
     @Override
     public void configure() throws Exception {
-        from("file://C:\\data\\input")
+        from("file://{{file.path}}")
                 .log("file detected :${file:name}")
                 .convertBodyTo(java.io.File.class,"UTF-8")
                 .bean("eventsController","processSource")
