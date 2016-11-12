@@ -1,5 +1,0 @@
-com\arun\events\consumer\entity\Event.class
-com\arun\events\consumer\service\EventConsumerService.class
-com\arun\events\consumer\Application.class
-com\arun\events\consumer\repository\IEventRepository.class
-com\arun\events\consumer\entity\Attributes.class
