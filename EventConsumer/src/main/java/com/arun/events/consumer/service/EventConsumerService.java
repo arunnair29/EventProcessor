@@ -13,7 +13,7 @@ import java.io.IOException;
 /**
  * Created by arunnair on 07/11/2016.
  *
- * This is the service class
+ * This Class listens to messages from  remote queue
  */
 @Component
 public class EventConsumerService implements IEventConsumerService {
@@ -42,8 +42,9 @@ public class EventConsumerService implements IEventConsumerService {
         } catch (IOException e) {
             LOG.error(e);
         }
-
-        LOG.info("Inserted an event : event.Id: " + event.getId() );
+        if(event!=null) {
+            LOG.info("Inserted an event : event.Id: " + event.getId());
+        }
     }
 
 }
