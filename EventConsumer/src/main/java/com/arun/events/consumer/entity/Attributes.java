@@ -1,11 +1,11 @@
 package com.arun.events.consumer.entity;
 
-import java.io.Serializable;
 
 /**
  * Created by arunnair on 06/11/2016.
+ * This class holds the attributes for Event
  */
-public class Attributes implements Serializable{
+public class Attributes {
 
     private String accountNumber;
     private String transactionAmount;

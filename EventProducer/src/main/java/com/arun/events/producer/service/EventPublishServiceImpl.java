@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
 /**
  * Created by arunnair on 06/11/2016.
  */
-@Service
+@Service("eventPublishService")
 public class EventPublishServiceImpl implements IEventPublishService{
 
     final static Logger LOG =Logger.getLogger(EventPublishServiceImpl.class);

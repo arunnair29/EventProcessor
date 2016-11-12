@@ -12,9 +12,11 @@ import java.io.IOException;
 
 /**
  * Created by arunnair on 07/11/2016.
+ *
+ * This is the service class
  */
 @Component
-public class EventConsumerService {
+public class EventConsumerService implements IEventConsumerService {
 
     @Autowired
     IEventRepository IEventRepository;
@@ -24,19 +26,25 @@ public class EventConsumerService {
 
     final static Logger LOG =Logger.getLogger(EventConsumerService.class);
     private final String JMS_QUEUE="events.queue";
-           @JmsListener(destination = JMS_QUEUE)
-            public void processMessage(String message) {
-               Event event=null;
-               try {
-                   event = mapper.readValue(message, Event.class);
-                   event = IEventRepository.save(event);
 
-
-               } catch (IOException e) {
-                   LOG.error(e);
-               }
-               LOG.info("Inserted an event : event.Id: " + event.getId() );
+    @JmsListener(destination = JMS_QUEUE)
+    public void processMessage(String message) {
+        if(null==message){
+            LOG.warn("NULL message received");
+            return;
         }
+        Event event=null;
+        try {
+
+            event = mapper.readValue(message, Event.class);
+            event = IEventRepository.save(event);
+
+        } catch (IOException e) {
+            LOG.error(e);
+        }
+
+        LOG.info("Inserted an event : event.Id: " + event.getId() );
+    }
 
 }
 

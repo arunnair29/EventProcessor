@@ -6,6 +6,8 @@ import org.springframework.stereotype.Component;
 
 /**
  * Created by arunnair on 06/11/2016.
+ * This is the Document object for Event . This will be added to events collection in database
+ *
  */
 @Component
 @Document(collection = "events")

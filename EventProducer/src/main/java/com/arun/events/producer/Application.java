@@ -29,7 +29,7 @@ import java.util.Arrays;
  */
 @SpringBootApplication
 @EnableJms
-@ImportResource("broker-config.xml")
+@ImportResource("classpath:broker-config.xml")
 public class Application {
 
     public static void main( String[] args ) {
