@@ -22,7 +22,7 @@ public class EventPublishServiceImpl implements IEventPublishService{
     @Autowired
     JmsTemplate jmsTemplate;
 
-    @Override
+
     public void publishEvent(Event event) {
         LOG.info("Publishing event" + event);
         ObjectMapper mapper = new ObjectMapper();

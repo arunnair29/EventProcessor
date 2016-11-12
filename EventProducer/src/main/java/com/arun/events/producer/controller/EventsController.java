@@ -23,17 +23,7 @@ public class EventsController {
     @Autowired
     IEventPublishService eventPublishService;
 
-//    @RequestMapping("/")
-//    public void start() throws IOException, InterruptedException {
-//        while(true) {
-//            for (Event event : eventPollerService.getEvents()) {
-//                eventPublishService.publishEvent(event);
-//            }
-//            Thread.sleep(2000);
-//        }
-//    }
-
-    public void processSource(Exchange exchange){
+   public void processSource(Exchange exchange){
         File file = (File)exchange.getIn().getBody();
         try {
             for(Event event:eventPollerService.getEvents(file)) {

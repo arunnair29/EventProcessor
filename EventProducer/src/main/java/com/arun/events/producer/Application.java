@@ -32,23 +32,9 @@ import java.util.Arrays;
 @ImportResource("broker-config.xml")
 public class Application {
 
-    public static void main( String[] args )
-    {
-        ConfigurableApplicationContext applicationContext=SpringApplication
+    public static void main( String[] args ) {
+        ConfigurableApplicationContext applicationContext = SpringApplication
                 .run(Application.class, args);
-        CamelSpringBootApplicationController applicationController =
-                applicationContext.getBean(CamelSpringBootApplicationController.class);
-        applicationController.blockMainThread();
-//       EventsController controller= (EventsController)application.getBean("eventsController");
-//        try {
-//             controller.start();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } catch (InterruptedException e) {
-//            e.printStackTrace();
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
     }
 
 }
