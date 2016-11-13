@@ -35,7 +35,7 @@ public class EventConsumerService implements IEventConsumerService {
         }
         Event event=null;
         try {
-
+            LOG.info("message received :" + message);
             event = mapper.readValue(message, Event.class);
             event = IEventRepository.save(event);
 

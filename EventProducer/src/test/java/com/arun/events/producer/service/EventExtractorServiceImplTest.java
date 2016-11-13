@@ -36,6 +36,22 @@ public class EventExtractorServiceImplTest {
     }
 
     @Test()
+    public void validateAttributes() {
+        String data = "{\"events\":[{\"attributes\":{\"Name\":\"Arun\",\"Transaction Amount\":\"250.00 USD\",\"Product\":\"Platinum\",\"Account Number\":\"3717000000000\"}}]}";
+        BufferedReader reader = new BufferedReader(new StringReader(data));
+        List<Event> eventsList=null;
+        try {
+            eventsList = new EventExtractorServiceImpl().getEvents(reader);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        assertThat(eventsList.get(0).getAttributes().getName()).isEqualTo("Arun");
+        assertThat(eventsList.get(0).getAttributes().getProduct()).isEqualTo("Platinum");
+        assertThat(eventsList.get(0).getAttributes().getTransactionAmount()).isEqualTo("250.00 USD");
+        assertThat(eventsList.get(0).getAttributes().getAccountNumber()).isEqualTo("3717000000000");
+
+    }
+    @Test()
     public void fileExtractorForInvalidValidEvents() {
         String data = "{\"attributes\":{\"name\":\"Arun\",\"transactionAmount\":\"250.00 USD\",\"product\":\"Platinum\",\"accountNumber\":\"3717000000000\"}";
         BufferedReader reader = new BufferedReader(new StringReader(data));

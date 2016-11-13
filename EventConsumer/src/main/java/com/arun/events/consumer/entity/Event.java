@@ -1,5 +1,6 @@
 package com.arun.events.consumer.entity;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Component;
@@ -13,10 +14,8 @@ import org.springframework.stereotype.Component;
 @Document(collection = "events")
 public class Event {
 
-
-
     @Id
-    String id;
+    private String id;
 
     private Attributes attributes;
 
@@ -27,14 +26,15 @@ public class Event {
     public void setId(String id) {
         this.id = id;
     }
+
+
     public Attributes getAttributes() {
         return attributes;
     }
 
+
     public void setAttributes(Attributes attributes) {
         this.attributes = attributes;
     }
-
-
 
 }

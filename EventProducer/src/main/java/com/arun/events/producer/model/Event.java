@@ -1,5 +1,7 @@
 package com.arun.events.producer.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.google.gson.annotations.SerializedName;
 import org.springframework.stereotype.Component;
 
 import java.io.Serializable;
@@ -10,7 +12,9 @@ import java.io.Serializable;
 @Component
 public class Event implements Serializable{
 
+    @SerializedName("attributes")
     private Attributes attributes;
+
 
     public Attributes getAttributes() {
         return attributes;
