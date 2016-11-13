@@ -1,13 +1,13 @@
 # EventProcessor
 
-This contains two applications once producer and one consumer. The producer reads the event objects in JSON and sends it to consumer using JMS and AMQ. 
+This contains two applications one producer and one consumer. The producer reads the event objects in JSON and sends it to consumer using JMS and AMQ. 
 
 The consumer application reads the message off the queue and inserts it to MongoDB .
 
 Pre-requisites for running the applications
 
 1.	Java 1.8 
-2.	MongoDB installed and mongod running.
+2.	MongoDB installed and mongodb running.
 
 To start the applications please execute commands as below
 
